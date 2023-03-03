@@ -18,6 +18,7 @@ First, install the dependencies and build the TypeScript code:
 ```sh
 yarn install
 yarn build
+npm install dotenv
 ```
 
 Next, you should configure the app.
