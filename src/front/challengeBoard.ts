@@ -44,8 +44,8 @@ export default async ({
           " ",
           sample(CONFIRMATIONS),
           now.valueOf() === rows[0].createdAt.valueOf()
-            ? " You are now on the challenge board."
-            : " You have been bumped to the top of the challenge board.",
+            ? " 你现在在挑战列表里面了。/You are now on the challenge board."
+            : " 你现在被推到挑战列表顶部了。/You have been bumped to the top of the challenge board.",
         ]),
       ]);
 
@@ -73,10 +73,10 @@ export default async ({
       // Build the reply text.
       let replyText;
       if (rowCount === 0) {
-        replyText = "You are not on the challenge board.";
+        replyText = "你现在不在挑战列表上。/You are not on the challenge board.";
       } else {
         assert.strictEqual(rowCount, 1);
-        replyText = "You've been removed from the challenge board.";
+        replyText = "你被从挑战列表中移除了。/You've been removed from the challenge board.";
       }
       const replyContent = render([
         h("p", {}, [createMention(id, name), " ", replyText]),
