@@ -65,7 +65,8 @@ export default async ({
       return challengeBoard.handleRequest(object);
     }
 
-    if (/\bchallenge\b/i.test(object.contentText)) {
+    if (/\bchallenge\b/i.test(object.contentText)||
+       /\b挑战\b/i.test(object.contentText)){
       debug("Received challenge");
       return game.handleChallenge(object);
     }
