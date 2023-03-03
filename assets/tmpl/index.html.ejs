@@ -3,49 +3,49 @@
 <% const tootLink = text => `web+mastodon://share?text=${encodeURIComponent(text)}` %>
 
 <h1><%= domain %></h1>
-<p>Challenge someone to a game of chess using toots!</p>
+<p>通过帖子挑战别人的棋局!</p>
 
 <ol class="usage">
 
   <li>
     <p>
-      Grab a <a href="https://joinmastodon.org/">Mastodon</a> account and
+      获取一个 <a href="https://joinmastodon.org/">Mastodon</a> 账户并
       <a href="<%= tootLink(`@king@${domain} I challenge `) %>">
-        toot <strong>@king@<%= domain %></strong></a>, for example:
+        发帖到 <strong>@king@<%= domain %></strong></a>, 例如:
     </p>
 
-    <pre>@king@<%= domain %> I challenge @Gargron!</pre>
+    <pre>@king@<%= domain %> 我要挑战 @Gargron!</pre>
 
     <ul class="small">
-      <li>(Any sentence will work, as long as it has the word 'challenge' and one other mention)</li>
-      <li>(You can, of course, use any ActivityPub-compatible microblogging service)</li>
+      <li>(任何句子都可以，只要有“挑战”或“challenge”一词和另外一个提及就可以)</li>
+      <li>(当然，你可以使用任何与ActivityPub兼容的微博客服务，例如Misskey)</li>
     </ul>
   </li>
 
   <li>
     <p>
-      Then simply reply with your move when it's your turn using
-      <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)">standard algebraic notation</a>
+      然后，在轮到你的时候用
+      <a href="https://zh.wikipedia.org/wiki/%E4%BB%A3%E6%95%B8%E8%A8%98%E8%AD%9C%E6%B3%95">代数记谱法</a>回复
     </p>
 
-    <pre>@king@<%= domain %> @Gargron e4. I will have your crown!</pre>
+    <pre>@king@<%= domain %> @Gargron e4. 我将拿下你的王冠!</pre>
 
     <ul class="small">
-      <li>(Your reply must start with the move, following any mentions)</li>
-      <li>(Sides are picked at random when you challenge someone)</li>
+      <li>(你的答复必须从代数记谱法的移动开始，移动要写在提及别人的地方之后)</li>
+      <li>(当你挑战别人时，会随机挑选另一方棋手)</li>
     </ul>
   </li>
 
 </ol>
 
-<h3>Open for challenges</h3>
+<h3>接受挑战</h3>
 <p>
-  These players have indicated that they are open for challenges:
-  (click ⚔️ to toot a challenge)
+  这些玩家已经表示他们愿意接受挑战。
+  (点击 ⚔️ 迎战)
 </p>
 <ul class="challenge-board">
   <% if (challengeBoard.length === 0) { %>
-    <li>(No players at this time)</li>
+    <li>(目前还没有玩家)</li>
   <% } else { %>
     <% for (const entry of challengeBoard) { %>
       <li>
@@ -53,7 +53,7 @@
         <% if (entry.actorFullName) { %>
           <a
             class="challenge small"
-            href="<%= tootLink(`@king@${domain} I challenge @${entry.actorFullName}`) %>"
+            href="<%= tootLink(`@king@${domain} 我要挑战 @${entry.actorFullName}`) %>"
           >⚔️</a>
         <% } %>
       </li>
@@ -62,19 +62,19 @@
 </ul>
 
 <p>
-  Get yourself on this list by
-    <a href="<%= tootLink(`@king@${domain} I'm open for challenges!`) %>">tooting</a>:
+  通过
+    <a href="<%= tootLink(`@king@${domain} I'm open for challenges!`) %>">发帖</a>加入列表:
 </p>
-<pre>@king@<%= domain %> I'm open for challenges!</pre>
+<pre>@king@<%= domain %> 我愿意接受别人的挑战!</pre>
 
-<h3>Recent games</h3>
+<h3>近期棋局</h3>
 <table class="recent-games">
   <tbody>
     <% for (const game of recentGames) { %>
       <tr>
         <td>
           <a href="/games/<%= game.id %>">♙ @<%= game.whiteName %> vs. ♟ @<%= game.blackName %></a>
-          <span class="small">(turn <%= Math.floor(game.numMoves / 2) + 1 %>)</span>
+          <span class="small">(第 <%= Math.floor(game.numMoves / 2) + 1 %> 回合)</span>
         </td>
         <td class="small time">
           <%= game.updatedAt.toUTCString() %>
@@ -90,7 +90,8 @@
 <p class="small align-right">
   Chess pieces by <a href="https://en.wikipedia.org/wiki/User:Cburnett/GFDL_images/Chess">Colin M.L. Burnett</a><br>
   Uses <a href="https://github.com/jhlywa/chess.js">chess.js</a> under the hood<br>
-  <a href="https://github.com/stephank/castling.club">Source code</a>
+  <a href="https://github.com/stephank/castling.club">Source code</a><br>
+  <a href="https://github.com/MomentQYC/castling.club-Chinese">中文版源代码</a>
 </p>
 
 <%- include("./_footer.html.ejs") -%>
