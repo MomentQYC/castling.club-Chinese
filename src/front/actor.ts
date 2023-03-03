@@ -66,7 +66,7 @@ export default async ({
       id: actorUrl,
       type: "Service",
       name: "King",
-      summary: `<p>I'm a bot, hosting games of chess!</p>`,
+      summary: `<p>我是一个主持国际象棋游戏的机器人!</p><br><p>I'm a bot, hosting games of chess!</p>`,
       preferredUsername: "king",
       inbox: `${origin}/inbox`,
       icon: {
