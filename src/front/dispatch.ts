@@ -50,7 +50,9 @@ export default async ({
     if (
       /\bnot\Wopen\Wfor\W(a\W)?challenges?\b/i.test(instr) ||
       /\bno\Wlonger\Wopen\Wfor\W(a\W)?challenges?\b/i.test(instr) ||
-      /\bremove\W(me\W)?from\W(the\W)?challenges?(\W?board)?\b/i.test(instr)
+      /\bremove\W(me\W)?from\W(the\W)?challenges?(\W?board)?\b/i.test(instr) ||
+      /\b不\W再\W参\W与\W(这个\W)?挑战?\b/i.test(instr) ||
+      /\b退出\W(这个\W)?挑战?\b/i.test(instr)
     ) {
       debug("Received request to remove from challenge board");
       return challengeBoard.handleRemove(object);
@@ -59,7 +61,8 @@ export default async ({
     if (
       /\bopen\Wfor\W(a\W)?challenges?\b/i.test(instr) ||
       /\brequest\W(a\W)?challenges?\b/i.test(instr) ||
-      /\badd\W(me\W)?to\W(the\W)?challenges?(\W?board)?\b/i.test(instr)
+      /\badd\W(me\W)?to\W(the\W)?challenges?(\W?board)?\b/i.test(instr) ||
+      /\b愿意接受\W(别人的\W)?挑战?\b/i.test(instr)
     ) {
       debug("Received request to add to challenge board");
       return challengeBoard.handleRequest(object);
