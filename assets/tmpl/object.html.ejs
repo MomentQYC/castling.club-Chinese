@@ -1,22 +1,22 @@
 <%- include("./_header.html.ejs") -%>
 
-<h3><span class="h-card"><a clas="u-url" href="/@king">@<span class="p-nickname">King</span></a></span> said:</h3>
-<p class="small">In reply to: <a href="<%= object.inReplyTo %>"><%= object.inReplyTo %></a></p>
+<h3><span class="h-card"><a clas="u-url" href="/@king">@<span class="p-nickname">King</span></a></span> 说:</h3>
+<p class="small">在回复中: <a href="<%= object.inReplyTo %>"><%= object.inReplyTo %></a></p>
 
 <blockquote><%- object.content %></blockquote>
 
 <div class="pagination">
   <p class="align-left">
     <% if (prevId) { %>
-      <a href="<%= prevId %>">« Previous move</a>
+      <a href="<%= prevId %>">« 上一步</a>
     <% } %>
   </p>
   <p class="align-center">
-    <a href="<%= object.game %>">Full game</a>
+    <a href="<%= object.game %>">整盘棋局</a>
   </p>
   <p class="align-right">
     <% if (nextId) { %>
-      <a href="<%= nextId %>">Next move »</a>
+      <a href="<%= nextId %>">下一步 »</a>
     <% } %>
   </p>
 </div>
@@ -32,7 +32,7 @@
 </p>
 
 <p class="small align-center">
-  <a href="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation">FEN</a>:
+  <a href="https://zh.wikipedia.org/wiki/%E7%A6%8F%E6%96%AF%E5%A4%AB%EF%BC%8D%E6%84%9B%E5%BE%B7%E8%8F%AF%E8%8C%B2%E8%A8%98%E8%99%9F%E6%B3%95">FEN</a>:
   <code><%= object.fen %></code>
 </p>
 
