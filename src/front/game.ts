@@ -296,14 +296,14 @@ export default async ({
       // Add the game URL to the setup note.
       const gameUrl = `${origin}/games/${row.id}`;
       line3 = [
-        "View the full game at any time at: ",
+        "在这里任何时候都可以查看完整的棋局/View the full game at any time at: ",
         h("a", { href: gameUrl }, [gameUrl]),
       ];
     }
 
     // Describe the next move or ending condition.
     if (game.isInCheckmate()) {
-      line2 = ["Checkmate."];
+      line2 = ["将军(Checkmate)。"];
     } else if (game.isInDraw()) {
       line2 = ["Draw."];
     } else {
@@ -311,13 +311,13 @@ export default async ({
         game.turn() === "w"
           ? createMention(row.whiteId, row.whiteName)
           : createMention(row.blackId, row.blackName),
-        "'s turn",
+        "的回合('s turn)",
       ];
       if (game.isInCheck()) {
-        line2.push(" (Check)");
+        line2.push(" (查看/Check)");
       }
       if (!move) {
-        line2.push(", reply with your move.");
+        line2.push(", 回复你的移动(reply with your move)。");
       }
     }
 
@@ -388,18 +388,18 @@ export default async ({
         createMention(actor.id, actor.preferredUsername || "???"),
         " ",
         sample([
-          "That appears to be invalid!",
-          "I can't make that work, I'm afraid.",
-          "Does not compute!",
-          "I don't know what to do with that.",
-          "A small misunderstanding.",
+          "这似乎是无效的！/That appears to be invalid!",
+          "恐怕我不能这样做。/I can't make that work, I'm afraid.",
+          "不算数！/Does not compute!",
+          "我不知道该如何处理。/I don't know what to do with that.",
+          "一个小误解。/A small misunderstanding.",
         ]),
         " ",
         sample([
-          `Perhaps you want ${movesText}?`,
-          `Did you mean ${movesText}?`,
-          `Maybe ${movesText}?`,
-          `Looking for ${movesText}?`,
+          `或许你想的是 ${movesText}?/Perhaps you want ${movesText}?`,
+          `你是说 ${movesText}?/Did you mean ${movesText}?`,
+          `可能是 ${movesText}?/Maybe ${movesText}?`,
+          `在寻找 ${movesText}?/Looking for ${movesText}?`,
         ]),
       ])
     );
