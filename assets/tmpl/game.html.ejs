@@ -15,7 +15,7 @@
 
 <h3>
   ♙ <span class="h-card"><a clas="u-url" href="<%= whiteActor %>">@<span class="p-nickname"><%= whiteUsername %></span></a></span>
-  vs.
+  VS.
   ♟ <span class="h-card"><a clas="u-url" href="<%= blackActor %>">@<span class="p-nickname"><%= blackUsername %></span></a></span>
 </h3>
 
@@ -42,8 +42,8 @@
 </blockquote>
 
 <p class="small align-right">
-  Started: <span class="time"><%= new Date(setupNote.published).toUTCString() %></span><br>
-  Last move: <span class="time"><%= new Date(lastNote.published).toUTCString() %></span>
+  开始日期: <span class="time"><%= new Date(setupNote.published).toUTCString() %></span><br>
+  最后移动: <span class="time"><%= new Date(lastNote.published).toUTCString() %></span>
 </p>
 
 <p class="chessboard">
@@ -53,9 +53,9 @@
 </p>
 
 <p class="small align-center">
-  <a href="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation">FEN</a>:
+  <a href="https://zh.wikipedia.org/wiki/%E7%A6%8F%E6%96%AF%E5%A4%AB%EF%BC%8D%E6%84%9B%E5%BE%B7%E8%8F%AF%E8%8C%B2%E8%A8%98%E8%99%9F%E6%B3%95">FEN</a>:
   <code><%= game.fen %></code><br>
-  <a href="<%= game.id %>?pgn">Download PGN</a> (experimental)
+  <a href="<%= game.id %>?pgn">下载棋局 PGN</a> (实验功能)
 </p>
 
 <p class="align-center">
